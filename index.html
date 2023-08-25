@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll top button</title>
+     <!----------------------- font awesome link------------------------->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <style>
+        * {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+body{
+    width: 100%;
+    height: 5000px;
+    background: peru;
+}
+/* button top code ----------------------------------------------------  */
+button {
+    display: none;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 40px;
+    right: 20px;
+    z-index: 999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:#1b8545;
+    border: none;
+  }
+  
+  .btn i{
+    font-size: 2vw;
+    color: #111;
+  }
+     </style>
+</head>
+<body>
+    <button class="btn"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+
+    <script>
+         ////////////////////////////////// top scroll ////////////////////////////////////////// 
+const button = document.querySelector('.btn');
+
+const displayButton = () => {
+  window.addEventListener('scroll', () => {
+    console.log(window.scrollY);
+  
+    if (window.scrollY > 100) {
+      button.style.display = "block";
+    } else {
+      button.style.display = "none";
+    }
+  });
+};
+
+const scrollToTop = () => {
+  button.addEventListener("click", () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    }); 
+    console.log(event);
+  });
+};
+
+displayButton();
+scrollToTop();
+
+
+    </script>
+</body>
+</html>
